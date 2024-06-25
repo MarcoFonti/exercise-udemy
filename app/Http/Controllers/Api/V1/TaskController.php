@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V1;
 
+use App\Http\Controllers\Controller;
 use App\Models\Task;
 use App\Http\Requests\StoreTaskRequest;
 use App\Http\Requests\UpdateTaskRequest;
+use App\Http\Resources\TaskResource;
 
 class TaskController extends Controller
 {
@@ -13,7 +15,8 @@ class TaskController extends Controller
      */
     public function index()
     {
-        //
+        /* RECUPERO TUTTI TASK */
+        return TaskResource::collection(Task::all());
     }
 
     /**
@@ -37,7 +40,9 @@ class TaskController extends Controller
      */
     public function show(Task $task)
     {
-        //
+
+        /* CON IL METODO MAKE TRASFORMO IL MODELLO PASSATO ('$task') IN UNA RISORSA JSON */
+        return TaskResource::make($task);
     }
 
     /**
