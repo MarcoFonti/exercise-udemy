@@ -8,13 +8,9 @@ use App\Http\Controllers\Api\Auth\RegisterController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-
-Route::middleware('auth:sanctum')->prefix('v1')->group(function(){
-    Route::apiResource('/tasks', TaskController::class);
-
-    /* API TASK COMPLETATA */
-    Route::patch('/tasks/{task}/complete', CompleteTaskController::class);
-});
+/* RECUPERO ROTTE V1-V2 */
+require __DIR__ . '/api/v1.php';
+require __DIR__ . '/api/v2.php';
 
 Route::prefix('auth')->group(function (){
 

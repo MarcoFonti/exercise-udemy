@@ -14,7 +14,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        /* Genero 10 dati fake */
-        Task::factory(10)->create();
+
+        /* CREO 5 UTENTI */
+        User::factory(5)->has(
+            /* ASSOCIO 10 TASK A CIASCUN UTENTE IN MODO CHE OGNI UTENTE AVRA ALMENO 10 TASKS */
+            Task::factory(10)
+        )->create();
     }
 }

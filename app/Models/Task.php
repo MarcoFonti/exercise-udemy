@@ -11,4 +11,11 @@ class Task extends Model
 
     /* CRAZIONE DI MASSA */
     protected $fillable = ['name'];
+
+    /* RELAZIONE CON USER */
+    public function user()
+    {
+        /* UN UTENTE */
+        return $this->belongsTo(User::class);
+    }
 }
