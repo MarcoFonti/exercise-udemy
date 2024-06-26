@@ -12,7 +12,7 @@ Route::get('/', function () {
 Route::prefix('auth')->group(function (){
 
     /* ROTTA LOGIN */
-    Route::post('/login', LoginController::class);
+    Route::post('/login', LoginController::class)->middleware('guest');
     /* ROTTA LOGOUT */
     Route::post('/logout', LogoutController::class);
     /* ROTTA REGISTRAZIONE */
