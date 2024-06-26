@@ -14,7 +14,7 @@ Route::prefix('auth')->group(function (){
     /* ROTTA LOGIN */
     Route::post('/login', LoginController::class)->middleware('guest');
     /* ROTTA LOGOUT */
-    Route::post('/logout', LogoutController::class);
+    Route::post('/logout', LogoutController::class)->middleware('guest');
     /* ROTTA REGISTRAZIONE */
-    Route::post('/register', RegisterController::class);
+    Route::post('/register', RegisterController::class)->middleware('guest');
 });
